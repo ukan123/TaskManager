@@ -1,0 +1,43 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+.vs/
+.vscode/
+*.userprefs
+
+# Dependency directories
+node_modules/
+packages/
+
+# Logs
+*.log
+logs/
+
+# Environment specific settings
+.env
+appsettings.Development.json
+appsettings.Production.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+*.swp
+*.swo
+*~
+
+# Browser-sync
+.browser-sync*
+
+# Backend build outputs
+backend/**/*.dll
+backend/**/*.exe
+backend/**/*.pdb
+backend/**/*.runtimeconfig.dev.json
+
+# Frontend dist folder if exists
+frontend/task-manager/dist/
