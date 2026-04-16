@@ -40,10 +40,10 @@ export const taskService = {
     /**
      * 更新任务
      * @param id 任务ID
-     * @param task 部分任务数据
+     * @param task 完整的任务数据
      * @returns Promise<any>
      */
-    updateTask: (id: number, task: Partial<TaskItem>) =>
+    updateTask: (id: number, task: TaskItem) =>
         api.put(`/tasks/${id}`, task),
     
     /**
@@ -59,8 +59,20 @@ export const taskService = {
      * @param isCompleted 新的完成状态
      * @returns Promise<any>
      */
-    toggleTaskCompletion: (id: number, isCompleted: boolean) =>
-        api.put(`/tasks/${id}`, { ...{ id }, isCompleted }),
+    toggleTaskCompletion: async (id: number, isCompleted: boolean) => {
+        // 先获取当前任务的完整数据
+        const response = await api.get<TaskItem>(`/tasks/${id}`);
+        const currentTask = response.data;
+        
+        // 合并新的完成状态
+        const updatedTask = {
+            ...currentTask,
+            isCompleted
+        };
+        
+        // 发送完整数据到后端
+        return api.put(`/tasks/${id}`, updatedTask);
+    },
 };
 
 export default api;

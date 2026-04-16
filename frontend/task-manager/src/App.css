@@ -1,181 +1,178 @@
+/* ========================================
+   根容器样式 - 整个应用的最外层
+======================================== */
 #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+    max-width: 1280px;      /* 最大宽度1280像素 */
+    margin: 0 auto;         /* 水平居中（上下0，左右自动） */
+    padding: 2rem;          /* 内边距2rem（1rem=16px，共32px） */
+    text-align: center;     /* 文字居中 */
 }
 
+/* ========================================
+   Logo 图片样式
+======================================== */
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+    height: 6em;            /* 高度6倍当前字体大小 */
+    padding: 1.5em;         /* 内边距 */
+    will-change: filter;    /* 性能优化：告诉浏览器filter属性会变化 */
+    transition: filter 300ms; /* 过渡动画：0.3秒 */
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa); /* 悬停时发光效果 */
 }
 
 .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa); /* React logo悬停时蓝色发光 */
 }
 
+/* ========================================
+   Logo 旋转动画
+======================================== */
 @keyframes logo-spin {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0deg);   /* 从0度开始 */
     }
-
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* 旋转到360度 */
     }
 }
 
+/* 只在用户不介意动画时播放 */
 @media (prefers-reduced-motion: no-preference) {
     a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
+        animation: logo-spin infinite 20s linear; /* 无限旋转，20秒一圈 */
     }
 }
 
+/* ========================================
+   卡片容器样式
+======================================== */
 .card {
-    padding: 2em;
+    padding: 2em;           /* 内边距2倍字体大小 */
 }
 
 .read-the-docs {
-    color: #888;
+    color: #888;            /* 灰色文字 */
 }
 
-/* 任务表单样式 */
+/* ========================================
+   任务表单样式
+======================================== */
 .task-form {
-    background: #f5f5f5;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+    background: #f5f5f5;    /* 浅灰色背景 */
+    padding: 1rem;          /* 内边距 */
+    border-radius: 8px;     /* 圆角8像素 */
+    margin-bottom: 2rem;    /* 下边距，和下方内容隔开 */
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem;    /* 每个表单项之间距离 */
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    display: block;         /* 独占一行 */
+    margin-bottom: 0.5rem;  /* 标签和输入框之间的距离 */
+    font-weight: bold;      /* 字体加粗 */
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    width: 100%;            /* 占满整个宽度 */
+    padding: 0.5rem;        /* 内边距 */
+    border: 1px solid #ccc; /* 灰色边框 */
+    border-radius: 4px;     /* 小圆角 */
+    box-sizing: border-box; /* 让宽度包含内边距和边框 */
 }
 
 .form-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
+    display: flex;          /* 使用flex布局，子元素排成一行 */
+    gap: 1rem;              /* 子元素之间距离 */
+    justify-content: flex-end; /* 靠右对齐 */
 }
 
-/* 任务列表样式 */
+/* ========================================
+   任务列表样式
+======================================== */
 .task-list {
-    list-style: none;
-    padding: 0;
+    list-style: none;       /* 去掉默认的项目符号 */
+    padding: 0;             /* 去掉默认内边距 */
 }
 
+/* 单个任务项的样式 */
 .task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
+    display: flex;                  /* flex布局，让内容排成一行 */
+    justify-content: space-between; /* 左右两端对齐 */
+    align-items: center;            /* 垂直居中对齐 */
+    padding: 1rem;                  /* 内边距 */
+    border: 1px solid #ddd;         /* 浅灰色边框 */
+    border-radius: 8px;             /* 圆角 */
+    margin-bottom: 0.5rem;          /* 每个任务之间的距离 */
 }
 
+/* 已完成任务的样式 */
 .task-item.completed {
-    background-color: #e8f5e8;
-    opacity: 0.8;
+    background-color: #e8f5e8;      /* 浅绿色背景 */
+    opacity: 0.8;                   /* 稍微透明 */
 }
 
+/* 任务标题 */
 .task-info h3 {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem 0;   /* 上0 右0 下0.5rem 左0 */
 }
 
+/* 任务描述 */
 .task-info p {
-    margin: 0.5rem 0;
-    color: #666;
+    margin: 0.5rem 0;       /* 上下0.5rem，左右0 */
+    color: #666;            /* 深灰色 */
 }
 
+/* 时间文字（Created 和 Completed） */
 .task-info small {
-    display: block;
-    color: #888;
-    font-size: 0.8rem;
+    display: block;         /* 独占一行 */
+    color: #888;            /* 灰色 */
+    font-size: 0.8rem;      /* 小字号 */
 }
 
+/* ========================================
+   任务操作按钮区域（复选框 + Edit + Delete）
+======================================== */
 .task-actions {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+    display: flex;          /* flex布局，排成一行 */
+    gap: 0.5rem;           /* 按钮之间的距离 */
+    align-items: center;    /* 垂直居中 */
 }
 
+/* 删除按钮 */
 .delete-btn {
-    background-color: #dc3545;
-    color: white;
+    background-color: #dc3545;  /* 红色背景 */
+    color: white;               /* 白色文字 */
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+    background-color: #c82333;  /* 悬停时深红色 */
 }
 
-/* 复选框样式 */
+/* ========================================
+   复选框样式 - 普通版本（方案A）
+   说明：使用浏览器默认的复选框，简单可靠
+======================================== */
+
+/* 复选框容器 */
 .checkbox-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
+    display: flex;          /* flex布局 */
+    align-items: center;    /* 垂直居中 */
 }
 
+/* 复选框本身 - 使用浏览器默认样式 */
 .checkbox-container input {
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    width: 18px;            /* 宽度18像素 */
+    height: 18px;           /* 高度18像素 */
+    cursor: pointer;        /* 鼠标变成手型 */
+    margin: 0;              /* 去掉默认外边距 */
 }
 
+/* 隐藏自定义圆形按钮（因为用普通复选框，不需要它） */
 .checkmark {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-.checkbox-container:hover input~.checkmark {
-    background-color: #ccc;
-}
-
-.checkbox-container input:checked~.checkmark {
-    background-color: #2196F3;
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.checkbox-container input:checked~.checkmark:after {
-    display: block;
-}
-
-.checkbox-container .checkmark:after {
-    left: 7px;
-    top: 3px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    display: none;          /* 隐藏 */
 }

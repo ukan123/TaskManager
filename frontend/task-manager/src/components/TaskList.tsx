@@ -34,9 +34,9 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, onToggle }
                         {/* 如果存在描述则显示 */}
                         {task.description && <p>{task.description}</p>}
                         {/* 显示创建时间和完成时间 */}
-                        <small>Created: {new Date(task.createdAt).toLocaleString()}</small>
+                        <small>Created: {new Date(task.createdAt+'Z').toLocaleString()}</small>
                         {task.completedAt && (
-                            <small>Completed: {new Date(task.completedAt).toLocaleString()}</small>
+                            <small>Completed: {new Date(task.completedAt+'Z').toLocaleString()}</small>
                         )}
                     </div>
                     <div className="task-actions">
